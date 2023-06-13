@@ -1,4 +1,4 @@
-# 1 "manejoLCD.c"
+# 1 "CPP_compare.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "manejoLCD.c" 2
+# 1 "CPP_compare.c" 2
 
 
 
@@ -8101,30 +8101,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 2 3
-# 9 "manejoLCD.c" 2
-
-# 1 "./LCD.h" 1
-# 11 "./LCD.h"
-void POS_CURSOR(unsigned char fila,unsigned char columna);
-void DISPLAY_ONOFF(unsigned char estado);
-void CURSOR_HOME(void);
-void CURSOR_ONOFF(unsigned char estado);
-void ENVIA_CHAR(unsigned char dato);
-void BORRAR_LCD(void);
-void LCD_CONFIG(void);
-void ENVIA_NIBBLE(unsigned char dato);
-void ENVIA_LCD_CMD(unsigned char dato);
-void LEER_LCD(void);
-void BLINK_CURSOR(unsigned char val);
-void GENERACARACTER(const unsigned char *vector,unsigned char pos);
-void ESCRIBE_MENSAJE(const char *cadena,unsigned char tam);
-void ESCRIBE_MENSAJE2(const char *cadena);
-void CURSOR_SHIFTLEFT(void);
-void CURSOR_SHIFTRIGHT(void);
-void DISPLAY_SHIFTLEFT(void);
-void DISPLAY_SHIFTRIGHT(void);
-void LCD_INIT(void);
-# 10 "manejoLCD.c" 2
+# 9 "CPP_compare.c" 2
 
 # 1 "./cabecera.h" 1
 
@@ -8196,30 +8173,93 @@ void LCD_INIT(void);
 
 
 #pragma config EBTRB = OFF
-# 11 "manejoLCD.c" 2
+# 10 "CPP_compare.c" 2
+
+# 1 "./LCD.h" 1
+# 11 "./LCD.h"
+void POS_CURSOR(unsigned char fila,unsigned char columna);
+void DISPLAY_ONOFF(unsigned char estado);
+void CURSOR_HOME(void);
+void CURSOR_ONOFF(unsigned char estado);
+void ENVIA_CHAR(unsigned char dato);
+void BORRAR_LCD(void);
+void LCD_CONFIG(void);
+void ENVIA_NIBBLE(unsigned char dato);
+void ENVIA_LCD_CMD(unsigned char dato);
+void LEER_LCD(void);
+void BLINK_CURSOR(unsigned char val);
+void GENERACARACTER(const unsigned char *vector,unsigned char pos);
+void ESCRIBE_MENSAJE(const char *cadena,unsigned char tam);
+void ESCRIBE_MENSAJE2(const char *cadena);
+void CURSOR_SHIFTLEFT(void);
+void CURSOR_SHIFTRIGHT(void);
+void DISPLAY_SHIFTLEFT(void);
+void DISPLAY_SHIFTRIGHT(void);
+void LCD_INIT(void);
+# 11 "CPP_compare.c" 2
 
 
 
-void main(void) {
+unsigned char dec_mil, millar, centena, decena, unidad;
+
+void configuro (void){
     OSCCON = 0X52;
-    TRISD = 0X00;
-    ANSELD = 0X00;
+    TRISD = 0;
+    ANSELD = 0;
+
+
+    TRISCbits.RC1 = 0;
+
+
+    T3CON = 0X30;
+
+
+    CCP2CON = 0X02;
+    CCPTMRSbits.C2TSEL = 1;
+    CCPR2H = 0x00;
+    CCPR2L = 0XFF;
+
+
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    PIE2bits.CCP2IE = 1;
+    TMR3H = 0X00;
+    TMR3L = 0X00;
+
+    T3CONbits.TMR3ON = 1;
 
     LCD_INIT();
-    ESCRIBE_MENSAJE2("HOLA MUNDO PERFECTO");
+}
 
+void convierte (unsigned int numero){
+    dec_mil = numero / 10000;
+    millar = (numero % 10000)/1000;
+    centena = (numero % 1000)/100;
+    decena = (numero % 100)/10;
+    unidad = numero % 10;
+}
 
+void main(void) {
+    configuro();
+    ESCRIBE_MENSAJE2("ESPERA...");
+    while(1){
 
-    _delay((unsigned long)((1000)*(4000000UL/4000.0)));
-    DISPLAY_SHIFTLEFT();
-    _delay((unsigned long)((1000)*(4000000UL/4000.0)));
-    DISPLAY_SHIFTLEFT();
-    _delay((unsigned long)((1000)*(4000000UL/4000.0)));
-    DISPLAY_SHIFTLEFT();
-    _delay((unsigned long)((1000)*(4000000UL/4000.0)));
-    DISPLAY_SHIFTLEFT();
-    _delay((unsigned long)((1000)*(4000000UL/4000.0)));
-    DISPLAY_SHIFTLEFT();
-    _delay((unsigned long)((1000)*(4000000UL/4000.0)));
+        POS_CURSOR(2,0);
+        convierte(TMR3);
+        ESCRIBE_MENSAJE2("CUENTA: ");
+        ENVIA_CHAR(dec_mil + 0x30);
+        ENVIA_CHAR(millar + 0x30);
+        ENVIA_CHAR(centena + 0x30);
+        ENVIA_CHAR(decena + 0x30);
+        ENVIA_CHAR(unidad + 0x30);
+
+    }
+
+}
+
+void __attribute__((picinterrupt(("")))) INT_CCP2(void){
+    PIR2bits.CCP2IF = 0;
+    POS_CURSOR(1,0);
+    ESCRIBE_MENSAJE2("YA HAY MATCH!!");
 
 }

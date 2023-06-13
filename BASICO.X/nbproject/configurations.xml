@@ -17,6 +17,9 @@
       <itemPath>maincode.c</itemPath>
       <itemPath>manejoLCD.c</itemPath>
       <itemPath>LCD.c</itemPath>
+      <itemPath>caracteres.c</itemPath>
+      <itemPath>CCP_capture.c</itemPath>
+      <itemPath>CPP_compare.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -70,6 +73,8 @@
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
       </makeCustomizationType>
+      <item path="CCP_capture.c" ex="true" overriding="false">
+      </item>
       <HI-TECH-COMP>
         <property key="additional-warnings" value="true"/>
         <property key="asmlist" value="true"/>
@@ -180,7 +185,19 @@
         <property key="user-pack-device-support" value=""/>
         <property key="wpo-lto" value="false"/>
       </XC8-config-global>
+      <item path="caracteres.c" ex="true" overriding="false">
+      </item>
       <item path="maincode.c" ex="true" overriding="false">
+        <HI-TECH-COMP>
+        </HI-TECH-COMP>
+        <HI-TECH-LINK>
+        </HI-TECH-LINK>
+        <XC8-CO>
+        </XC8-CO>
+        <XC8-config-global>
+        </XC8-config-global>
+      </item>
+      <item path="manejoLCD.c" ex="true" overriding="false">
       </item>
     </conf>
   </confs>
