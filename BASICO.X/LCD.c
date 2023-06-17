@@ -1,6 +1,7 @@
 #include <xc.h>
 #include "LCD.h"
 #include <string.h>
+#define _XTAL_FREQ 4000000UL
 
 void POS_CURSOR(unsigned char fila,unsigned char columna)
 {

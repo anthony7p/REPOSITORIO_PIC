@@ -12,6 +12,7 @@
 #define _XTAL_FREQ 4000000UL
 
 unsigned char dec_mil, millar, centena, decena, unidad;
+unsigned int count;
  
 void configuro (void){
     OSCCON = 0X52;
@@ -22,23 +23,23 @@ void configuro (void){
     TRISCbits.RC1 = 0;
     
     // configurar TIMER3
-    T3CON = 0X30; // clock source fosc/4, presc 8, r/w 8 bits,Timer3 off
+    T3CON = 0X32; // clock source fosc/4, presc 8, r/w 16 bits,Timer3 off
     
     // configurar modulo CCP en modo compare
     CCP2CON = 0X02; // toggle pin CCP2 on match
     CCPTMRSbits.C2TSEL = 1; // modulo CCP usara timer3
-    CCPR2H = 0x00;
-    CCPR2L = 0XFF;
+    CCPR2 = 0XFF;
     
     // configurar interrupcion
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
     PIE2bits.CCP2IE = 1;
-    TMR3H = 0X00;
-    TMR3L = 0X00;
+    
+    TMR3 = 0;
+    
     
     T3CONbits.TMR3ON = 1;
-    
+   
     LCD_INIT();
 }
 
@@ -52,9 +53,9 @@ void convierte (unsigned int numero){
 
 void main(void) {
     configuro();
+    POS_CURSOR(1,0);
     ESCRIBE_MENSAJE2("ESPERA...");
     while(1){
-        
         POS_CURSOR(2,0);
         convierte(TMR3);
         ESCRIBE_MENSAJE2("CUENTA: ");
@@ -65,13 +66,14 @@ void main(void) {
         ENVIA_CHAR(unidad + 0x30);
     
     }
-    
+         
 }
 
 void __interrupt() INT_CCP2(void){
     PIR2bits.CCP2IF = 0;
+    
     POS_CURSOR(1,0);
-    ESCRIBE_MENSAJE2("YA HAY MATCH!!");
+    ESCRIBE_MENSAJE2("YA HAY MATCH");
     
 }
 

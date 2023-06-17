@@ -40,12 +40,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "197
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f45k50.h: 197: extern volatile CCPTMRSbits_t CCPTMRSbits __attribute__((address(0xF59)));
 [v _CCPTMRSbits `VS11 ~T0 @X0 0 e@3929 ]
-"4606
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f45k50.h: 4606: extern volatile unsigned char CCPR2H __attribute__((address(0xF91)));
-[v _CCPR2H `Vuc ~T0 @X0 0 e@3985 ]
-"4586
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f45k50.h: 4586: extern volatile unsigned char CCPR2L __attribute__((address(0xF90)));
-[v _CCPR2L `Vuc ~T0 @X0 0 e@3984 ]
+"4579
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f45k50.h: 4579: extern volatile unsigned short CCPR2 __attribute__((address(0xF90)));
+[v _CCPR2 `Vus ~T0 @X0 0 e@3984 ]
 "13231
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f45k50.h: 13231:     struct {
 [s S612 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -84,12 +81,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6516
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f45k50.h: 6516: extern volatile PIE2bits_t PIE2bits __attribute__((address(0xFA0)));
 [v _PIE2bits `VS262 ~T0 @X0 0 e@4000 ]
-"8059
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f45k50.h: 8059: extern volatile unsigned char TMR3H __attribute__((address(0xFB3)));
-[v _TMR3H `Vuc ~T0 @X0 0 e@4019 ]
-"8039
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f45k50.h: 8039: extern volatile unsigned char TMR3L __attribute__((address(0xFB2)));
-[v _TMR3L `Vuc ~T0 @X0 0 e@4018 ]
+"8032
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f45k50.h: 8032: extern volatile unsigned short TMR3 __attribute__((address(0xFB2)));
+[v _TMR3 `Vus ~T0 @X0 0 e@4018 ]
 "7909
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f45k50.h: 7909:     struct {
 [s S344 :2 `uc 1 :1 `uc 1 ]
@@ -121,16 +115,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./LCD.h: 29: void LCD_INIT(void);
 [v _LCD_INIT `(v ~T0 @X0 0 ef ]
 [p mainexit ]
-"24
-[; ;./LCD.h: 24: void ESCRIBE_MENSAJE2(const char *cadena);
-[v _ESCRIBE_MENSAJE2 `(v ~T0 @X0 0 ef1`*Cuc ]
 "11
 [; ;./LCD.h: 11: void POS_CURSOR(unsigned char fila,unsigned char columna);
 [v _POS_CURSOR `(v ~T0 @X0 0 ef2`uc`uc ]
-"8032 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f45k50.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f45k50.h: 8032: extern volatile unsigned short TMR3 __attribute__((address(0xFB2)));
-[v _TMR3 `Vus ~T0 @X0 0 e@4018 ]
-"15 ./LCD.h
+"24
+[; ;./LCD.h: 24: void ESCRIBE_MENSAJE2(const char *cadena);
+[v _ESCRIBE_MENSAJE2 `(v ~T0 @X0 0 ef1`*Cuc ]
+"15
 [; ;./LCD.h: 15: void ENVIA_CHAR(unsigned char dato);
 [v _ENVIA_CHAR `(v ~T0 @X0 0 ef1`uc ]
 [t ~ __interrupt . k ]
@@ -867,39 +858,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _centena `uc ~T0 @X0 1 e ]
 [v _decena `uc ~T0 @X0 1 e ]
 [v _unidad `uc ~T0 @X0 1 e ]
-"16
-[; ;CPP_compare.c: 16: void configuro (void){
+"15
+[; ;CPP_compare.c: 15: unsigned int count;
+[v _count `ui ~T0 @X0 1 e ]
+"17
+[; ;CPP_compare.c: 17: void configuro (void){
 [v _configuro `(v ~T0 @X0 1 ef ]
 {
 [e :U _configuro ]
 [f ]
-"17
-[; ;CPP_compare.c: 17:     OSCCON = 0X52;
-[e = _OSCCON -> -> 82 `i `uc ]
 "18
-[; ;CPP_compare.c: 18:     TRISD = 0;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;CPP_compare.c: 18:     OSCCON = 0X52;
+[e = _OSCCON -> -> 82 `i `uc ]
 "19
-[; ;CPP_compare.c: 19:     ANSELD = 0;
+[; ;CPP_compare.c: 19:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
+"20
+[; ;CPP_compare.c: 20:     ANSELD = 0;
 [e = _ANSELD -> -> 0 `i `uc ]
-"22
-[; ;CPP_compare.c: 22:     TRISCbits.RC1 = 0;
+"23
+[; ;CPP_compare.c: 23:     TRISCbits.RC1 = 0;
 [e = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
-"25
-[; ;CPP_compare.c: 25:     T3CON = 0X30;
-[e = _T3CON -> -> 48 `i `uc ]
-"28
-[; ;CPP_compare.c: 28:     CCP2CON = 0X02;
-[e = _CCP2CON -> -> 2 `i `uc ]
+"26
+[; ;CPP_compare.c: 26:     T3CON = 0X32;
+[e = _T3CON -> -> 50 `i `uc ]
 "29
-[; ;CPP_compare.c: 29:     CCPTMRSbits.C2TSEL = 1;
-[e = . . _CCPTMRSbits 0 2 -> -> 1 `i `uc ]
+[; ;CPP_compare.c: 29:     CCP2CON = 0X02;
+[e = _CCP2CON -> -> 2 `i `uc ]
 "30
-[; ;CPP_compare.c: 30:     CCPR2H = 0x00;
-[e = _CCPR2H -> -> 0 `i `uc ]
+[; ;CPP_compare.c: 30:     CCPTMRSbits.C2TSEL = 1;
+[e = . . _CCPTMRSbits 0 2 -> -> 1 `i `uc ]
 "31
-[; ;CPP_compare.c: 31:     CCPR2L = 0XFF;
-[e = _CCPR2L -> -> 255 `i `uc ]
+[; ;CPP_compare.c: 31:     CCPR2 = 0XFF;
+[e = _CCPR2 -> -> 255 `i `us ]
 "34
 [; ;CPP_compare.c: 34:     INTCONbits.GIE = 1;
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
@@ -909,119 +900,119 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36
 [; ;CPP_compare.c: 36:     PIE2bits.CCP2IE = 1;
 [e = . . _PIE2bits 0 0 -> -> 1 `i `uc ]
-"37
-[; ;CPP_compare.c: 37:     TMR3H = 0X00;
-[e = _TMR3H -> -> 0 `i `uc ]
 "38
-[; ;CPP_compare.c: 38:     TMR3L = 0X00;
-[e = _TMR3L -> -> 0 `i `uc ]
-"40
-[; ;CPP_compare.c: 40:     T3CONbits.TMR3ON = 1;
+[; ;CPP_compare.c: 38:     TMR3 = 0;
+[e = _TMR3 -> -> 0 `i `us ]
+"41
+[; ;CPP_compare.c: 41:     T3CONbits.TMR3ON = 1;
 [e = . . _T3CONbits 1 0 -> -> 1 `i `uc ]
-"42
-[; ;CPP_compare.c: 42:     LCD_INIT();
-[e ( _LCD_INIT ..  ]
 "43
-[; ;CPP_compare.c: 43: }
+[; ;CPP_compare.c: 43:     LCD_INIT();
+[e ( _LCD_INIT ..  ]
+"44
+[; ;CPP_compare.c: 44: }
 [e :UE 636 ]
 }
-"45
-[; ;CPP_compare.c: 45: void convierte (unsigned int numero){
+"46
+[; ;CPP_compare.c: 46: void convierte (unsigned int numero){
 [v _convierte `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _convierte ]
 [v _numero `ui ~T0 @X0 1 r1 ]
 [f ]
-"46
-[; ;CPP_compare.c: 46:     dec_mil = numero / 10000;
-[e = _dec_mil -> / _numero -> -> 10000 `i `ui `uc ]
 "47
-[; ;CPP_compare.c: 47:     millar = (numero % 10000)/1000;
-[e = _millar -> / % _numero -> -> 10000 `i `ui -> -> 1000 `i `ui `uc ]
+[; ;CPP_compare.c: 47:     dec_mil = numero / 10000;
+[e = _dec_mil -> / _numero -> -> 10000 `i `ui `uc ]
 "48
-[; ;CPP_compare.c: 48:     centena = (numero % 1000)/100;
-[e = _centena -> / % _numero -> -> 1000 `i `ui -> -> 100 `i `ui `uc ]
+[; ;CPP_compare.c: 48:     millar = (numero % 10000)/1000;
+[e = _millar -> / % _numero -> -> 10000 `i `ui -> -> 1000 `i `ui `uc ]
 "49
-[; ;CPP_compare.c: 49:     decena = (numero % 100)/10;
-[e = _decena -> / % _numero -> -> 100 `i `ui -> -> 10 `i `ui `uc ]
+[; ;CPP_compare.c: 49:     centena = (numero % 1000)/100;
+[e = _centena -> / % _numero -> -> 1000 `i `ui -> -> 100 `i `ui `uc ]
 "50
-[; ;CPP_compare.c: 50:     unidad = numero % 10;
-[e = _unidad -> % _numero -> -> 10 `i `ui `uc ]
+[; ;CPP_compare.c: 50:     decena = (numero % 100)/10;
+[e = _decena -> / % _numero -> -> 100 `i `ui -> -> 10 `i `ui `uc ]
 "51
-[; ;CPP_compare.c: 51: }
+[; ;CPP_compare.c: 51:     unidad = numero % 10;
+[e = _unidad -> % _numero -> -> 10 `i `ui `uc ]
+"52
+[; ;CPP_compare.c: 52: }
 [e :UE 637 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"53
-[; ;CPP_compare.c: 53: void main(void) {
+"54
+[; ;CPP_compare.c: 54: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"54
-[; ;CPP_compare.c: 54:     configuro();
-[e ( _configuro ..  ]
 "55
-[; ;CPP_compare.c: 55:     ESCRIBE_MENSAJE2("ESPERA...");
-[e ( _ESCRIBE_MENSAJE2 (1 :s 1C ]
+[; ;CPP_compare.c: 55:     configuro();
+[e ( _configuro ..  ]
 "56
-[; ;CPP_compare.c: 56:     while(1){
+[; ;CPP_compare.c: 56:     POS_CURSOR(1,0);
+[e ( _POS_CURSOR (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+"57
+[; ;CPP_compare.c: 57:     ESCRIBE_MENSAJE2("ESPERA...");
+[e ( _ESCRIBE_MENSAJE2 (1 :s 1C ]
+"58
+[; ;CPP_compare.c: 58:     while(1){
 [e :U 640 ]
 {
-"58
-[; ;CPP_compare.c: 58:         POS_CURSOR(2,0);
-[e ( _POS_CURSOR (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
 "59
-[; ;CPP_compare.c: 59:         convierte(TMR3);
-[e ( _convierte (1 -> _TMR3 `ui ]
+[; ;CPP_compare.c: 59:         POS_CURSOR(2,0);
+[e ( _POS_CURSOR (2 , -> -> 2 `i `uc -> -> 0 `i `uc ]
 "60
-[; ;CPP_compare.c: 60:         ESCRIBE_MENSAJE2("CUENTA: ");
-[e ( _ESCRIBE_MENSAJE2 (1 :s 2C ]
+[; ;CPP_compare.c: 60:         convierte(TMR3);
+[e ( _convierte (1 -> _TMR3 `ui ]
 "61
-[; ;CPP_compare.c: 61:         ENVIA_CHAR(dec_mil + 0x30);
-[e ( _ENVIA_CHAR (1 -> + -> _dec_mil `i -> 48 `i `uc ]
+[; ;CPP_compare.c: 61:         ESCRIBE_MENSAJE2("CUENTA: ");
+[e ( _ESCRIBE_MENSAJE2 (1 :s 2C ]
 "62
-[; ;CPP_compare.c: 62:         ENVIA_CHAR(millar + 0x30);
-[e ( _ENVIA_CHAR (1 -> + -> _millar `i -> 48 `i `uc ]
+[; ;CPP_compare.c: 62:         ENVIA_CHAR(dec_mil + 0x30);
+[e ( _ENVIA_CHAR (1 -> + -> _dec_mil `i -> 48 `i `uc ]
 "63
-[; ;CPP_compare.c: 63:         ENVIA_CHAR(centena + 0x30);
-[e ( _ENVIA_CHAR (1 -> + -> _centena `i -> 48 `i `uc ]
+[; ;CPP_compare.c: 63:         ENVIA_CHAR(millar + 0x30);
+[e ( _ENVIA_CHAR (1 -> + -> _millar `i -> 48 `i `uc ]
 "64
-[; ;CPP_compare.c: 64:         ENVIA_CHAR(decena + 0x30);
-[e ( _ENVIA_CHAR (1 -> + -> _decena `i -> 48 `i `uc ]
+[; ;CPP_compare.c: 64:         ENVIA_CHAR(centena + 0x30);
+[e ( _ENVIA_CHAR (1 -> + -> _centena `i -> 48 `i `uc ]
 "65
-[; ;CPP_compare.c: 65:         ENVIA_CHAR(unidad + 0x30);
+[; ;CPP_compare.c: 65:         ENVIA_CHAR(decena + 0x30);
+[e ( _ENVIA_CHAR (1 -> + -> _decena `i -> 48 `i `uc ]
+"66
+[; ;CPP_compare.c: 66:         ENVIA_CHAR(unidad + 0x30);
 [e ( _ENVIA_CHAR (1 -> + -> _unidad `i -> 48 `i `uc ]
-"67
-[; ;CPP_compare.c: 67:     }
+"68
+[; ;CPP_compare.c: 68:     }
 }
 [e :U 639 ]
 [e $U 640  ]
 [e :U 641 ]
-"69
-[; ;CPP_compare.c: 69: }
+"70
+[; ;CPP_compare.c: 70: }
 [e :UE 638 ]
 }
 [v $root$_INT_CCP2 `(v ~T0 @X0 0 e ]
-"71
-[; ;CPP_compare.c: 71: void __attribute__((picinterrupt(("")))) INT_CCP2(void){
+"72
+[; ;CPP_compare.c: 72: void __attribute__((picinterrupt(("")))) INT_CCP2(void){
 [v _INT_CCP2 `(v ~T1 @X0 1 ef ]
 {
 [e :U _INT_CCP2 ]
 [f ]
-"72
-[; ;CPP_compare.c: 72:     PIR2bits.CCP2IF = 0;
-[e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
 "73
-[; ;CPP_compare.c: 73:     POS_CURSOR(1,0);
+[; ;CPP_compare.c: 73:     PIR2bits.CCP2IF = 0;
+[e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
+"75
+[; ;CPP_compare.c: 75:     POS_CURSOR(1,0);
 [e ( _POS_CURSOR (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-"74
-[; ;CPP_compare.c: 74:     ESCRIBE_MENSAJE2("YA HAY MATCH!!");
-[e ( _ESCRIBE_MENSAJE2 (1 :s 3C ]
 "76
-[; ;CPP_compare.c: 76: }
+[; ;CPP_compare.c: 76:     ESCRIBE_MENSAJE2("YA HAY MATCH");
+[e ( _ESCRIBE_MENSAJE2 (1 :s 3C ]
+"78
+[; ;CPP_compare.c: 78: }
 [e :UE 642 ]
 }
+[a 3C 89 65 32 72 65 89 32 77 65 84 67 72 0 ]
 [a 1C 69 83 80 69 82 65 46 46 46 0 ]
-[a 3C 89 65 32 72 65 89 32 77 65 84 67 72 33 33 0 ]
 [a 2C 67 85 69 78 84 65 58 32 0 ]

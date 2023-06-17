@@ -8201,6 +8201,7 @@ void LCD_INIT(void);
 
 
 unsigned char dec_mil, millar, centena, decena, unidad;
+unsigned int count;
 
 void configuro (void){
     OSCCON = 0X52;
@@ -8211,20 +8212,20 @@ void configuro (void){
     TRISCbits.RC1 = 0;
 
 
-    T3CON = 0X30;
+    T3CON = 0X32;
 
 
     CCP2CON = 0X02;
     CCPTMRSbits.C2TSEL = 1;
-    CCPR2H = 0x00;
-    CCPR2L = 0XFF;
+    CCPR2 = 0XFF;
 
 
     INTCONbits.GIE = 1;
     INTCONbits.PEIE = 1;
     PIE2bits.CCP2IE = 1;
-    TMR3H = 0X00;
-    TMR3L = 0X00;
+
+    TMR3 = 0;
+
 
     T3CONbits.TMR3ON = 1;
 
@@ -8241,9 +8242,9 @@ void convierte (unsigned int numero){
 
 void main(void) {
     configuro();
+    POS_CURSOR(1,0);
     ESCRIBE_MENSAJE2("ESPERA...");
     while(1){
-
         POS_CURSOR(2,0);
         convierte(TMR3);
         ESCRIBE_MENSAJE2("CUENTA: ");
@@ -8259,7 +8260,8 @@ void main(void) {
 
 void __attribute__((picinterrupt(("")))) INT_CCP2(void){
     PIR2bits.CCP2IF = 0;
+
     POS_CURSOR(1,0);
-    ESCRIBE_MENSAJE2("YA HAY MATCH!!");
+    ESCRIBE_MENSAJE2("YA HAY MATCH");
 
 }

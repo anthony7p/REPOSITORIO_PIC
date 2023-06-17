@@ -8178,6 +8178,7 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 3 "LCD.c" 2
 
 
+
 void POS_CURSOR(unsigned char fila,unsigned char columna)
 {
  if(fila == 1)
